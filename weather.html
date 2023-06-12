@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Parcel Sandbox</title>
+    <meta charset="UTF-8" />
+       <link rel="stylesheet" type="text/css" href="index.css" />
+       <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+
+  <body>
+    <div class="big"> 
+    <section class="fles">
+    <div>
+      <h1>
+        My WeatherApp
+      </h1>
+    </div>
+    <div class="top">
+      <h3>
+        Sunny
+      </h3>
+     <div id="dateTime">
+     </div>
+    </div>
+    </section>
+    
+    <form onsubmit="searchCity(event)">
+        <label for="cityName">Enter a city name:</label>
+        <input type="text" id="cityName" name="cityName" required>
+        <button type="submit">Search</button>
+      </form>
+      
+    <div class="time">
+      <section>
+      <h3 id="cityResult">
+        Cameroon
+      </h3>
+      ☀
+      </section>
+      <section class="pe">
+        <p>Temperature 23 &#176 </p>
+        <p>Precipitation 1% </p>
+        <p>Wind 27km/h </p>
+    </div>
+  </section>
+  <section class="slide">
+    <div>Temperature</div>
+    <div>Precipitation</div>
+    <div>Wind</div>
+  </section>
+  <section class="wi">
+  <div>
+    <h3>Sun</h3>
+    🌤
+    <p>28&#176</p>
+  </div>
+  <div>
+    <h3>Mon</h3>
+   ☀
+   <p>27&#176</p>
+  </div>
+  <div>
+    <h3>Tues</h3>
+    🌦
+    <p>29&#176</p>
+  </div>
+  <div>
+    <h3>Wed</h3>
+    🌨
+    <p>27&#176</p>
+  </div>
+  <div>
+    <h3>Thurs</h3>
+    ⛈
+    <p>28&#176</p>
+  </div>
+  <div>
+    <h3>Fri</h3>
+    🌨
+    <p>27&#176</p>
+  </div>
+  <div>
+    <h3>Sat</h3>
+    🌧
+    <p>29&#176</p>
+  </div>
+  </section>
+    </div>
+    <script>
+      function displayDateTime() {
+  const currentDate = new Date();
+  const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+  const timeOptions = { hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true };
+  
+  const dateFormatted = currentDate.toLocaleDateString('en-US', dateOptions);
+  const timeFormatted = currentDate.toLocaleTimeString('en-US', timeOptions);
+  
+  const dateTimeDiv = document.getElementById("dateTime");
+  dateTimeDiv.innerHTML= `Current date: ${dateFormatted}<br>Current time: ${timeFormatted}`;
+}
+
+displayDateTime();
+
+//search event
+function searchCity(event) {
+        event.preventDefault();
+        const cityName = document.getElementById("cityName").value;
+        const cityResultDiv = document.getElementById("cityResult");
+        cityResultDiv.innerHTML = ` ${cityName}`;
+      }
+
+      function searchCity(city) {
+  let apiKey = "2ff29bed3181c3526c35cc5408037f85";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayWeatherCondition);
+}
+
+function handleSubmit(event) {
+  event.preventDefault();
+  let city = document.querySelector("#city-input").value;
+  searchCity(city);
+}
+
+function searchLocation(position) {
+  let apiKey = "2ff29bed3181c3526c35cc5408037f85";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
+
+  axios.get(apiUrl).then(displayWeatherCondition);
+}
+
+
+function getCurrentLocation(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(searchLocation);
+}
+    </script>
+  </body>
+</html>
