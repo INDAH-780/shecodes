@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Parcel Sandbox</title>
+    <meta charset="UTF-8" />
+       <link rel="stylesheet" type="text/css" href="weeek4.css" />
+  </head>
+
+  <body>
+    <section class="fles">
+    <div>
+      <h1>
+        My WeatherApp
+      </h1>
+    </div>
+    <div class="top">
+      <h3>
+        Sunny
+      </h3>
+      <h4>
+        Sunday 7th may, 11:00am
+      </h4>
+    </div>
+    </section>
+    
+    <form>
+      <input type="text" placeholder="Search..." name="search" />
+      <button type="submit">Search</button>
+      <button>Current</button>
+    </form>
+
+    <div class="time">
+      <section>
+      <h3>
+        Cameroon
+      </h3>
+      ☀
+      </section>
+      <section class="pe">
+        <p>Temperature 23 &#176 </p>
+        <p>Precipitation 1% </p>
+        <p>Wind 27km/h </p>
+    </div>
+  </section>
+  <section class="slide">
+    <div>Temperature</div>
+    <div>Precipitation</div>
+    <div>Wind</div>
+  </section>
+  <section class="wi">
+  <div>
+    <h3>Sun</h3>
+    🌤
+    <p>28&#176</p>
+  </div>
+  <div>
+    <h3>Mon</h3>
+   ☀
+   <p>27&#176</p>
+  </div>
+  <div>
+    <h3>Tues</h3>
+    🌦
+    <p>29&#176</p>
+  </div>
+  <div>
+    <h3>Wed</h3>
+    🌨
+    <p>27&#176</p>
+  </div>
+  <div>
+    <h3>Thurs</h3>
+    ⛈
+    <p>28&#176</p>
+  </div>
+  <div>
+    <h3>Fri</h3>
+    🌨
+    <p>27&#176</p>
+  </div>
+  <div>
+    <h3>Sat</h3>
+    🌧
+    <p>29&#176</p>
+  </div>
+  </section>
+    <script src="src/index.js">
+        let currentTime = new Date();
+
+// Challenge 1
+console.log(currentTime);
+
+// Challenge 2
+console.log(currentTime.getMilliseconds());
+
+// Challenge 3
+console.log(currentTime.getDay());
+
+// Challenge 4
+console.log(currentTime.getFullYear());
+
+// Challenge 5
+console.log(currentTime.getMonth());
+
+// Challenge 6
+
+// Challenge 7
+function formatDate(date) {
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday"
+  ];
+
+  let months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December"
+  ];
+
+  let currentYear = date.getFullYear();
+  let currentDay = days[date.getDay()];
+  let currentMonth = months[date.getMonth()];
+  let currentDate = date.getDate();
+
+  let formattedDate = `Today is ${currentDay}, ${currentMonth} ${currentDate}, ${currentYear}`;
+
+  return formattedDate;
+}
+
+console.log(formatDate(currentTime));
+
+    </script>
+  </body>
+</html>

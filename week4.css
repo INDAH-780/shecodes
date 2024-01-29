@@ -1,0 +1,25 @@
+body {
+  background-color: blanchedalmond;
+}
+.time {
+  display: flex;
+  flex-wrap: wrap;
+}
+.pe {
+  margin-left: 20px;
+}
+.fles {
+  display: flex;
+}
+.top {
+  right: 0;
+  margin-left: 150px;
+}
+.slide {
+  display: flex;
+  justify-content: space-between;
+}
+.wi {
+  display: flex;
+  justify-content: space-evenly;
+}
